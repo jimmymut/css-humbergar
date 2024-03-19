@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    padding: 50px;
+    position: relative;
+}
+
+nav ul{
+    list-style: none;
+}
+
+header input{
+    display: none;
+ }
+
+header label{
+    width: 30px;
+    background-color: #000;
+    height: 2px;
+    float: left;
+    position: relative;
+    cursor: pointer;
+    display: none;
+}
+
+ header label::before{
+    content: "";
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 5px;
+ }
+
+ header label::after{
+    content: "";
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: -5px;
+ }
+
+ .menu{
+    margin-top: 50px;
+ }
+ .menu ul{
+    position: absolute;
+    left: 20px;
+    transition: left .4s ease-out;
+    display: flex;
+    gap: 10px;
+ }
+
+ header .checkbox:checked ~ .input-label{
+    background: transparent;
+ }
+
+ header .checkbox:checked ~ .input-label::before{
+    transform: rotate(45deg);
+    top: 0;
+ }
+ header .checkbox:checked ~ .input-label::after{
+    transform: rotate(-45deg);
+    top: 0;
+ }
+
+ header .checkbox:checked ~ .menu ul{
+    left: 20px;
+ }
+
+ @media screen and (max-width: 768px) {
+    .input-label{
+        display: block;
+    }
+
+    .menu ul{
+        flex-direction: column;
+        left: -200px;
+    }
+ }
